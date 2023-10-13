@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<h2>Top grill</h2>
+
+
+
+<div  class="bg"></div>
+
+<!-- Timer -->
+
+<p id="timer" class="timer_design"></p>
+<script>
+    
+    var time = 6;
+    var x = setInterval(function() {
+        
+            document.getElementById("timer").innerHTML =  `Time : ${time-=1}`
+            if(time<=0){
+                time = 6
+            }
+        }, 1000)
+
+    
+    </script>
+
+
+
+    <div>
+        <div id="grill-area" class="grill-top">
+            <div></div>
+                <img class="grilling" src="img/pan.png">
+        </div>
+    </div>
+    <br>
+    <div>
+        <div class="raw">
+            <img id="raw-patty" class="meat" src="img/raw_patty.jpg" draggable="true">
+            <img id="raw-patty" class="meat" src="img/raw_patty.jpg" draggable="true">
+        </div>
+    </div>
+    <script src="script.js"></script>
+    
+</body>
+</html>

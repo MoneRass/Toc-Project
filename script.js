@@ -1,33 +1,43 @@
-const meat = document.querySelectorAll('.meat');
-const grill_top = document.querySelector('.grill-top');
-const grilling = document.querySelector('.grilling');
-
-//1. Drag
-function dragMeat(event){
-    event.dataTransfer.setData('text/plain', event.target.id);
-    console.log(event.target.id);
-}
-
-meat.forEach((meat) => {
-    meat.addEventListener('dragstart', dragMeat);
-})
-
-//2. Drop
-function dragOverMeat(event){
-    event.preventDefault();
-}
-
-function dropMeat(event){
-    event.preventDefault();
-    const id = event.dataTransfer.getData('text/plain')
-    const image = document.querySelector('#'+id);
-    grilling.src = image.src;
-}
-
-grill_top.addEventListener('dragover', dragOverMeat);
-grill_top.addEventListener('drop', dropMeat);
+document.addEventListener('DOMContentLoaded', function () {
+    // Add an event listener to the button
+    document.getElementById('flip-button').addEventListener('click', function () {
+        alert('Button Clicked!'); // Replace with your desired action
+    });
+});
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    let progress = 0;
+    const progressBar = document.getElementById('progress');
+    let isIncreasing = false; // Flag to track whether the gauge is increasing
+
+    // Function to increase the gauge progress over time
+    function increaseProgress() {
+        if (progress < 100 && isIncreasing) {
+            progress += 0.1; // Increase the progress by 1% (adjust as needed)
+            progressBar.style.height = progress + '%';
+            requestAnimationFrame(increaseProgress);
+        }
+    }
+
+    // Function to toggle the gauge increase
+    function toggleGauge() {
+        isIncreasing = !isIncreasing;
+        if (isIncreasing) {
+            increaseProgress();
+        }
+    }
+
+    // Add a click event to the "Flip" button to toggle the gauge increase
+    document.getElementById('gas-button').addEventListener('click', function () {
+        toggleGauge();
+    });
+});
+
+
+
+
+// ===============================================================================================================
 document.addEventListener('DOMContentLoaded', function(){
     create_transition_block()
     document.getElementById('container').style.display = 'flex'
@@ -56,4 +66,8 @@ document.addEventListener('DOMContentLoaded', function(){
         sumHeight += randomHeight
       }
     }
+  })
+
+document.addEventListener('DOMContentLoaded', function(){
+    document.body.style.backgroundImage = 'url(\'state_bread_background.png\')'
   })

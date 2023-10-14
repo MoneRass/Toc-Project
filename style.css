@@ -86,7 +86,15 @@
     width: 100%;
     height: 0; /* Start with 0 height (empty) */
     background: green;
-    transition: height 1s;
+    
+}
+
+.red-line {
+    width: 50%;
+    height: 10%;
+    background: red;
+    position: absolute;
+    bottom: 20%;
 }
 
 /* Transition */

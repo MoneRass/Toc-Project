@@ -1,23 +1,41 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Add an event listener to the button
     document.getElementById('flip-button').addEventListener('click', function () {
-        alert('Button Clicked!'); // Replace with your desired action
+        
+        if (progress===80) {
+            resetProgress();
+        } else {
+            toggleGauge();
+        }
+        
     });
 });
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    let progress = 0;
+    var progress = 0;
     const progressBar = document.getElementById('progress');
     let isIncreasing = false; // Flag to track whether the gauge is increasing
 
     // Function to increase the gauge progress over time
     function increaseProgress() {
+        
         if (progress < 100 && isIncreasing) {
-            progress += 0.1; // Increase the progress by 1% (adjust as needed)
+            progress += 0.5; // Increase the progress by 1% (adjust as needed)
             progressBar.style.height = progress + '%';
+            console.log(progress)
             requestAnimationFrame(increaseProgress);
         }
+        else if (progress < 100 && !isIncreasing && progress >= 0) {
+            progress -= 0.5; // Increase the progress by 1% (adjust as needed)
+            progressBar.style.height = progress + '%';
+            console.log(progress)
+            requestAnimationFrame(increaseProgress);
+        }
+        else{
+            resetProgress()
+        }
+        
     }
 
     // Function to toggle the gauge increase
@@ -25,12 +43,33 @@ document.addEventListener('DOMContentLoaded', function () {
         isIncreasing = !isIncreasing;
         if (isIncreasing) {
             increaseProgress();
+            document.getElementById('flip-button').addEventListener('click', function () {
+                alert('hello')
+                if (progress >= 70) {
+                    resetProgress();
+                }
+                
+            });
         }
+    }
+
+    function resetProgress() {
+        progress = 0;
+        progressBar.style.height = '0%';
+        isIncreasing = false; // Stop the gauge increase
     }
 
     // Add a click event to the "Flip" button to toggle the gauge increase
     document.getElementById('gas-button').addEventListener('click', function () {
         toggleGauge();
+    });
+
+    document.getElementById('flip-button').addEventListener('click', function () {
+        
+        if (progress >= 70) {
+            resetProgress();
+        }
+        
     });
 });
 

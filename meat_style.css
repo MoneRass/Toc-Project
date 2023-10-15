@@ -1,12 +1,12 @@
-.kitchen-bg {
+.meat_kitchen-bg {
     background: rgb(249, 206, 127);
     width: 100%;
     height: 100vh;
     position: absolute;
 }
 
-.pan {
-    background: url('img/pan.png') no-repeat center center;
+.meat_pan {
+    background: url('meat_img/pan.png') no-repeat center center;
     background-size: contain;
     width: 80%; /* Adjust the width and height as needed */
     height: 80%;
@@ -17,7 +17,7 @@
     transform: rotate(-190deg);
 }
 
-.grey-rectangle {
+.meat_grey-rectangle {
     background: grey; /* Set the background color to grey */
     width: 500px; /* Adjust the width as needed */
     height: 500px; /* Adjust the height as needed */
@@ -29,7 +29,7 @@
     z-index: -1;
 }
 
-.square-button {
+.meat_square-button {
     position: absolute;
     bottom: 20%; /* Adjust the distance from the bottom as needed */
     right: 20%; /* Adjust the distance from the right as needed */
@@ -40,7 +40,7 @@
     border-radius: 20%;
 }
 
-.square-button button {
+.meat_square-button button {
     width: 100%;
     height: 100%;
     background: transparent;
@@ -50,7 +50,7 @@
 }
 
 
-.round-button {
+.meat_round-button {
     position: absolute;
     bottom: 20%; /* Adjust the distance from the bottom as needed */
     left: 20%; /* Adjust the distance from the right as needed */
@@ -61,7 +61,7 @@
     border-radius: 50%;
 }
 
-.round-button button {
+.meat_round-button button {
     width: 100%;
     height: 100%;
     background: transparent;
@@ -70,7 +70,7 @@
     font-size: 24px;
 }
 
-.vertical-gauge {
+.meat_vertical-gauge {
     position: absolute;
     bottom: 20%; /* Adjust the bottom distance as needed */
     left: 5%;
@@ -82,14 +82,14 @@
     transform: rotate(180deg);
 }
 
-.gauge-fill {
+.meat_gauge-fill {
     width: 100%;
     height: 0; /* Start with 0 height (empty) */
     background: green;
     
 }
 
-.red-line {
+.meat_red-line {
     width: 50%;
     height: 10%;
     background: red;
@@ -120,8 +120,8 @@
     z-index: 9999;
   }
 
-.beef-patty {
-    background: url('img/patty.png') no-repeat center center;
+.meat_beef-patty {
+    background: url('meat_img/patty.png') no-repeat center center;
     background-size: contain;
     width: 40%;
     height: 40%;
@@ -132,13 +132,13 @@
     
 }
 
-.guide-text {
+.meat_guide-text {
   
   font-size: 24px;
 
 }
   
-.guide-box {
+.meat_guide-box {
   width: 60%;
   position: absolute;
   top: 5%;

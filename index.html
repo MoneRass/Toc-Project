@@ -12,7 +12,9 @@
     <h2>Top grill</h2>
 
     <div class="kitchen-bg">
-        <dev class="pan"></dev>
+        <dev class="pan">
+            <div class="beef-patty"></div>
+        </dev>
     </div>
         
     <div class="grey-rectangle"></div>
@@ -32,22 +34,14 @@
         <div class="gauge-fill" id="progress"></div>
     </div>
 
+    <div class="guide-box">
 
-
-<p id="timer" class="timer_design"></p>
-<script>
-    
-    var time = 6;
-    var x = setInterval(function() {
+        <p class="guide-text">How to play : Turn on "Gas" button and "Flip" when bar gauge reach the red line.</p>
         
-            document.getElementById("timer").innerHTML =  `Time : ${time-=1}`
-            if(time<=0){
-                time = 6
-            }
-        }, 1000)
+    </div>
 
-    
-        </script>
+    <audio id="gas-sound" src="audio/sizzle.mp3" autoplay></audio>
+
 
 
     <script src="script.js"></script>

@@ -1,21 +1,22 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Add an event listener to the button
-    document.getElementById('flip-button').addEventListener('click', function () {
+// document.addEventListener('DOMContentLoaded', function () {
+//     // Add an event listener to the button
+//     document.getElementById('flip-button').addEventListener('click', function () {
         
-        if (progress===80) {
-            resetProgress();
-        } else {
-            toggleGauge();
-        }
+//         if (progress===80) {
+//             resetProgress();
+//         } else {
+//             toggleGauge();
+//         }
         
-    });
-});
+//     });
+// });
 
 
 document.addEventListener('DOMContentLoaded', function () {
     var progress = 0;
     const progressBar = document.getElementById('progress');
     let isIncreasing = false; // Flag to track whether the gauge is increasing
+    var gasSound = document.getElementById('gas-sound');
 
     // Function to increase the gauge progress over time
     function increaseProgress() {
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (progress < 100 && isIncreasing) {
             progress += 0.5; // Increase the progress by 1% (adjust as needed)
             progressBar.style.height = progress + '%';
-            console.log(progress)
+            
             requestAnimationFrame(increaseProgress);
         }
         else if (progress < 100 && !isIncreasing && progress >= 0) {
@@ -40,16 +41,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to toggle the gauge increase
     function toggleGauge() {
+        
+        console.log('p',progress)
         isIncreasing = !isIncreasing;
+        
         if (isIncreasing) {
             increaseProgress();
-            document.getElementById('flip-button').addEventListener('click', function () {
-                alert('hello')
-                if (progress >= 70) {
-                    resetProgress();
-                }
+            gasSound.play();
+            // document.getElementById('flip-button').addEventListener('click', function () {
+            //     if (progress <= 45 && progress >= 40) {
+            //         resetProgress();
+            //     }
                 
-            });
+            // });
+        }
+        else if(!isIncreasing) {
+            gasSound.pause()
+
         }
     }
 
@@ -57,17 +65,22 @@ document.addEventListener('DOMContentLoaded', function () {
         progress = 0;
         progressBar.style.height = '0%';
         isIncreasing = false; // Stop the gauge increase
+        gasSound.pause()
     }
 
     // Add a click event to the "Flip" button to toggle the gauge increase
     document.getElementById('gas-button').addEventListener('click', function () {
+        
         toggleGauge();
     });
 
+    // the game end here
     document.getElementById('flip-button').addEventListener('click', function () {
         
-        if (progress >= 70) {
-            resetProgress();
+        if (progress >= 70 && progress <= 80) {
+            alert('redirect')
+            //redirectToResultPage() <========================================================****
+            resetProgress()
         }
         
     });
@@ -110,3 +123,10 @@ document.addEventListener('DOMContentLoaded', function(){
 document.addEventListener('DOMContentLoaded', function(){
     document.body.style.backgroundImage = 'url(\'state_bread_background.png\')'
   })
+
+function redirectToResultPage() {
+    document.getElementById('transition-container').style.animation = 'sliding-left-in 1s forwards'
+    setTimeout(function(){
+      window.location.href = 'minigame_bread.html';
+    }, 1000)
+}
